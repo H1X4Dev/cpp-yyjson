@@ -3181,7 +3181,7 @@ namespace yyjson
             {
                 if (is_real()) return yyjson_get_real(val_);
                 if (is_int()) [[likely]]
-                    return yyjson_get_sint(val_);
+                    return static_cast<double>(yyjson_get_sint(val_));
                 return std::nullopt;
             }
             [[nodiscard]] std::optional<std::string_view> as_string() const noexcept
