@@ -1630,7 +1630,7 @@ namespace yyjson
                 {
                     if (is_real()) return yyjson_mut_get_real(base::val_);
                     if (is_int()) [[likely]]
-                        return yyjson_mut_get_sint(base::val_);
+                        return static_cast<double>(yyjson_mut_get_sint(base::val_));
                     return std::nullopt;
                 }
                 [[nodiscard]] std::optional<std::string_view> as_string() const noexcept
